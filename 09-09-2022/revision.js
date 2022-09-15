@@ -85,44 +85,39 @@
 //     else return -1
 // }))
 
-// let obj = {
-//     subjects: ['math', 'english', 'hindi', 'science'],
-//     marks: [95, 80, 92, 88]
-// }
-
-// {
-//  subjects: ['english', 'science', 'hindi', 'math'],
-//  marks: [80,88,92,95]
-// }
-
-// obj.subjects = obj.subjects.sort(function(a,b) {
-//     const marksOfA = getMarks(a)
-//     const marksOfB = getMarks(b)
-//     if(marksOfA > marksOfB) return +1
-//     else if(marksOfA < marksOfB) return -1
-//     else return 0
-// })
-
-// function getMarks(subject) {
-//     const indexOfSubject = obj.subjects.indexOf(subject)
-//     const marksOfSubject = obj.marks[indexOfSubject]
-//     return marksOfSubject
-// }
-
-// obj.marks = obj.marks.sort(function(a,b) {
-//     if(a > b) return +1
-//     else if(a === b) return 0
-//     else return -1
-// })
-// console.log(obj)
-    
-let arr = [{
+let obj = {
     subjects: ['math', 'english', 'hindi', 'science'],
     marks: [95, 80, 92, 88]
-}, {
-    subjects: ['physics', 'english', 'chemistry', 'science'],
-    marks: [45, 80, 92, 88]
-}, {
-    subjects: ['math', 'physical', 'hindi', 'science'],
-    marks: [80, 80, 92, 88]
-}]
+}
+
+obj.subjects = obj.subjects.sort(function(a,b) {
+    const marksOfA = getMarks(a)
+    const marksOfB = getMarks(b)
+    if(marksOfA > marksOfB) return +1
+    else if(marksOfA < marksOfB) return -1
+    else return 0
+})
+
+function getMarks(subject) {
+    const indexOfSubject = obj.subjects.indexOf(subject)
+    const marksOfSubject = obj.marks[indexOfSubject]
+    return marksOfSubject
+}
+
+obj.marks = obj.marks.sort(function(a,b) {
+    if(a > b) return +1
+    else if(a === b) return 0
+    else return -1
+})
+console.log(obj)
+    
+// let arr = [{
+//     subjects: ['math', 'english', 'hindi', 'science'],
+//     marks: [95, 80, 92, 88]
+// }, {
+//     subjects: ['physics', 'english', 'chemistry', 'science'],
+//     marks: [45, 80, 92, 88]
+// }, {
+//     subjects: ['math', 'physical', 'hindi', 'science'],
+//     marks: [80, 80, 92, 88]
+// }]
