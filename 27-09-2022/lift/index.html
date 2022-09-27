@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lift</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <body>
+    <center>
+      <div
+        id="building"
+        style="
+          height: 800px;
+          width: 300px;
+          background-color: blue;
+          padding: 0 100px;
+          margin-top: 100px;
+          display: flex;
+        "
+      >
+        <div
+          id="lift"
+          style="height: 200px; width: 100px; background-color: yellow"
+        ></div>
+      </div>
+    </center>
+    <script>
+      //   console.log(document.getElementById("lift")); // single node
+      //   console.log(document.getElementsByClassName("lift")[0]) //array of nodes
+      //   console.log(document.getElementsByTagName('center')) //array of nodes
+      const lift = document.getElementById("lift");
+      let marginTop = 0;
+      let direction = "down";
+      setInterval(() => {
+        if (direction === "down") {
+          marginTop += 2;
+        } else {
+          marginTop -= 2;
+        }
+
+        lift["style"]["margin-top"] = `${marginTop}px`;
+        lift.style["background-color"] =
+          lift.style["background-color"] === "yellow" ? "red" : "yellow";
+        if (marginTop === 600 || marginTop === 0) {
+          direction = direction === "down" ? "up" : "down";
+        }
+      }, 10);
+    </script>
+  </body>
+</html>

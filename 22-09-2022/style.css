@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Courier New";
+  margin: 0;
+  padding: 30px;
+}
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.name {
+  margin: 0;
+  color: rgb(46, 46, 200);
+}
+.one-liner {
+  margin: 0;
+  font-size: 12px;
+}
+.common-heading {
+  color: rgb(46, 46, 200);
+  margin: 0;
+}
+.about {
+  margin: 0;
+}
+.intro-container {
+  margin-bottom: 30px;
+}
+.common-subheading {
+  margin: 0;
+  font-size: 20px;
+}
+.list-container {
+  margin: 0;
+}
+.list-item {
+  font-size: 14px;
+}
+.experience {
+  margin-top: 20px;
+}
