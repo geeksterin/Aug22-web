@@ -83,18 +83,37 @@
         //step 4: release key
 
         let input = inputs[i];
-        input.addEventListener("keypress", () => {
-          input.value = "";
+        input.addEventListener("keydown", (e) => {
+          if (input.value === "" && e.key === "Backspace") {
+            if (i > 0) {
+              inputs[i - 1].focus();
+            }
+          } else {
+            input.value = "";
+          }
         });
 
         //chrome function
 
-        input.addEventListener("keyup", () => {
-          if (i < inputs.length - 1) {
+        input.addEventListener("keyup", (e) => {
+          if (i < inputs.length - 1 && e.key !== "Backspace") {
             inputs[i + 1].focus(); //click on the next input
           } else if (i === inputs.length - 1) {
+            validateOtp();
           }
         });
+      }
+
+      function validateOtp() {
+        let otp = "";
+        for (let input of inputs) {
+          otp += input.value;
+        }
+        if (otp.length === inputs.length) {
+          if (otp !== "0000") {
+            alert("Invalid OTP!");
+          }
+        }
       }
     </script>
   </body>
