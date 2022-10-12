@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <body
+    style="
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      <h1 id="time" style="margin-bottom: 20px">00m 00s</h1>
+      <div style="display: flex; justify-content: space-evenly; width: 100%">
+        <button
+          id="start-stop-button"
+          style="
+            width: 200px;
+            height: 50px;
+            border-radius: 4px;
+            background-color: blue;
+            border: none;
+            color: white;
+          "
+        >
+          Start
+        </button>
+        <button
+          id="reset"
+          style="
+            width: 200px;
+            height: 50px;
+            border-radius: 4px;
+            background-color: lightgray;
+            border: none;
+          "
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+    <script>
+      let minutes = 0;
+      let seconds = 0;
+      const startStopButton = document.getElementById("start-stop-button");
+      const resetButton = document.getElementById("reset");
+      const time = document.getElementById("time");
+      startStopButton.addEventListener("click", startStopTimer);
+      let interval;
+      function startStopTimer() {
+        if (startStopButton.innerText === "Start") {
+          interval = setInterval(function () {
+            seconds += 1;
+            if (seconds === 60) {
+              minutes += 1;
+              seconds = 0;
+            }
+            time.innerText = `${minutes}m ${seconds}s`;
+          }, 1000);
+          console.log(interval);
+          startStopButton.innerText = "Stop";
+        } else {
+          clearInterval(interval);
+          startStopButton.innerText = "Start";
+        }
+      }
+
+      resetButton.addEventListener("click", reset);
+
+      function reset() {
+        clearInterval(interval);
+        startStopButton.innerText = "Start";
+        minutes = 0;
+        seconds = 0;
+        time.innerText = `${minutes}m ${seconds}s`;
+      }
+    </script>
+  </body>
+</html>

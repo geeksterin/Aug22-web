@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step-1</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    "
+  >
+    <div
+      id="form"
+      style="
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      "
+    >
+      <h1 style="font-size: 48px; font-weight: 700">Step-1</h1>
+      <div style="text-align: center">
+        <h4 style="font-size: 32px; font-weight: 600; margin-bottom: 12px">
+          Phone Number
+        </h4>
+        <div
+          style="
+            display: flex;
+            border: 2px solid black;
+            border-radius: 8px;
+            padding: 4px;
+          "
+        >
+          <div style="padding: 8px">
+            <p style="font-size: 24px; font-weight: 600">+91</p>
+          </div>
+          <input
+            style="
+              border: none;
+              outline: none;
+              font-size: 24px;
+              font-weight: 500;
+            "
+            id="phoneNumber"
+            type="number"
+          />
+        </div>
+      </div>
+      <button
+        style="
+          font-size: 32px;
+          padding: 8px;
+          width: 200px;
+          border: 1px solid block;
+          border-radius: 4px;
+        "
+      >
+        Next
+      </button>
+    </div>
+    <script>
+      const input = document.getElementById("phoneNumber");
+      input.addEventListener("change", () => {
+        if (input.value.length !== 10) {
+          alert("Phone number should be of length 10."); //error
+          return;
+        }
+        if (
+          input.value[0] !== "6" &&
+          input.value[0] !== "7" &&
+          input.value[0] !== "8" &&
+          input.value[0] !== "9"
+        ) {
+          alert("Phone number must start with number 6,7,8 or 9.");
+        }
+      });
+    </script>
+  </body>
+</html>

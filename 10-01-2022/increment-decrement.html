@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Increment-Decrement</title>
+  </head>
+  <body style="display: flex; align-items: center; gap: 20px">
+    <button style="width: 100px; height: 50px; font-size: 30px">-</button>
+    <h1>0</h1>
+    <button style="width: 100px; height: 50px; font-size: 30px">+</button>
+  </body>
+  <script>
+    const numberNode = document.getElementsByTagName("h1")[0];
+    let number = parseInt(numberNode.innerText);
+
+    const [decrementButton, incrementButton] =
+      document.getElementsByTagName("button");
+
+    decrementButton.addEventListener("click", decrement);
+    incrementButton.addEventListener("click", increment);
+
+    function decrement(e) {
+        console.log(e)
+      number -= 1;
+      numberNode.innerText = number;
+    }
+
+    function increment() {
+      number += 1;
+      numberNode.innerText = number;
+    }
+  </script>
+</html>

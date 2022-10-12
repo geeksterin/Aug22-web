@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="parent"></div>
+  </body>
+  <script>
+    const child = document.createElement("img"); // <img />
+    child.setAttribute(
+      "src",
+      "https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg"
+    ); // <img src="value" />
+    child.style.width = "300px";
+    child.style.height = "200px";
+    const parent = document.getElementsByClassName("parent")[0];
+    parent.appendChild(child);
+    setTimeout(() => {
+        parent.removeChild(child)
+    },3000)
+  </script>
+</html>

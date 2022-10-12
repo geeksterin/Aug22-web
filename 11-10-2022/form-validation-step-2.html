@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step-2</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .input {
+      border: 2px solid black;
+      width: 50px;
+      height: 80px;
+      border-radius: 4px;
+      font-size: 32px;
+      font-weight: 500;
+      text-align: center;
+    }
+  </style>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    "
+  >
+    <div
+      id="form"
+      style="
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      "
+    >
+      <h1 style="font-size: 48px; font-weight: 700">Step-2</h1>
+      <div style="text-align: center">
+        <h4 style="font-size: 32px; font-weight: 600; margin-bottom: 12px">
+          OTP
+        </h4>
+        <div style="display: flex; padding: 4px; gap: 16px">
+          <input type="number" class="input" />
+          <input type="number" class="input" />
+          <input type="number" class="input" />
+          <input type="number" class="input" />
+        </div>
+      </div>
+      <button
+        style="
+          font-size: 32px;
+          padding: 8px;
+          width: 200px;
+          border: 1px solid block;
+          border-radius: 4px;
+        "
+      >
+        Verify
+      </button>
+    </div>
+    <script>
+      const inputs = document.getElementsByClassName("input");
+      for (let i = 0; i < inputs.length; i++) {
+        // step 1: pressed 4, input.value became 4
+        //step 2: release the key
+        // input.addEventListener("keyup", (e) => {
+        //   if (input.value.length >= 1) { //true
+        //     input.value = input.value[0]; // input.value will again become 4
+        //     // currently input.value is 45 but after the execution of abve line it will become 5
+        //   }
+        // });
+        //step 3: press 5, input.value become 45
+        //step 4: release key
+
+        let input = inputs[i];
+        input.addEventListener("keypress", () => {
+          input.value = "";
+        });
+
+        //chrome function
+
+        input.addEventListener("keyup", () => {
+          if (i < inputs.length - 1) {
+            inputs[i + 1].focus(); //click on the next input
+          } else if (i === inputs.length - 1) {
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

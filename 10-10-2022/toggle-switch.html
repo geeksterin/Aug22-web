@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Switch</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    "
+  >
+    <div style="display: flex; flex-direction: row; padding: 20px; gap: 8px">
+      <div
+        style="
+          display: flex;
+          background-color: lightgray;
+          width: 40px;
+          border-radius: 10px;
+          height: 20px;
+          align-items: center;
+          padding-left: 3px;
+          padding-right: 3px;
+          box-shadow: 0 0 2px 0.25px rgb(160, 159, 159) inset;
+        "
+      >
+        <button
+          style="
+            border-radius: 50%;
+            background-color: white;
+            width: 14px;
+            height: 14px;
+            border: none;
+            box-shadow: 0px 0px 2px 0.25px rgb(160, 159, 159);
+            margin-left: 0px;
+          "
+        ></button>
+      </div>
+      <h4>Switch</h4>
+    </div>
+    <script>
+      let value = 0;
+      let marginLeft = 0;
+      const button = document.getElementsByTagName("button")[0];
+      button.addEventListener("click", toggle);
+
+      function toggle() {
+        const interval = setInterval(() => {
+          if (value === 0) {
+            // we have to turn on the switch
+            marginLeft += 0.5;
+            button.style["margin-left"] = `${marginLeft}px`; //to reflect margin on ui
+            if (marginLeft === 20) {
+              value = 1;
+              clearInterval(interval);
+            }
+          } else {
+            marginLeft -= 0.5;
+            button.style["margin-left"] = `${marginLeft}px`;
+            if (marginLeft === 0) {
+              value = 0;
+              clearInterval(interval);
+            }
+          }
+        }, 10);
+      }
+    </script>
+  </body>
+</html>

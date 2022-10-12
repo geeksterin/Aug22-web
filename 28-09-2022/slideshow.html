@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slideshow</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <body
+    style="
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <img
+      src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg"
+      style="width: 600px; height: 400px"
+    />
+    <script>
+      const images = [
+        "https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg",
+        "https://cdn.freecodecamp.org/curriculum/css-photo-gallery/2.jpg",
+        "https://cdn.freecodecamp.org/curriculum/css-photo-gallery/4.jpg",
+      ];
+      let index = 0
+      const imgTag = document.getElementsByTagName('img')[0]
+      setInterval(() => {
+        index++
+        imgTag.src = images[index]
+        if(index === images.length - 1) {
+            index = -1 //go back
+        }
+      },1000)
+    </script>
+  </body>
+</html>
