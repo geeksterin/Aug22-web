@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-container {
+      width: 80vw;
+      padding: 20px;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .heading-container {
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+
+    .search-icon-container {
+      background-color: rgb(242, 243, 245);
+      border-radius: 50%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heading {
+      margin-left: 8px;
+    }
+  </style>
+  <body>
+    <div class="main-container">
+      <div class="top-container">
+        <div class="header-container">
+          <div class="heading-container">
+            <img
+              src="./assets/icons/check-mark.png"
+              class="tick-icon"
+              width="28px"
+              height="28px"
+            />
+            <h1 class="heading">Daily task</h1>
+          </div>
+          <div class="search-icon-container">
+            <img
+              src="./assets/icons/magnifying-glass.png"
+              class="search-icon"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
