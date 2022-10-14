@@ -10,6 +10,7 @@
     * {
       margin: 0;
       box-sizing: border-box;
+      font-family: sans-serif;
     }
     body {
       display: flex;
@@ -19,6 +20,10 @@
     .main-container {
       width: 80vw;
       padding: 20px;
+    }
+
+    .top-container {
+      margin-bottom: 40px;
     }
 
     .header-container {
@@ -59,6 +64,36 @@
       margin: 0px 4px;
       font-weight: 600;
     }
+    .list-container {
+      display: flex;
+      gap: 16px;
+      height: calc(100vh - 200px);
+      overflow: auto;
+    }
+    .list {
+      min-width: 200px;
+      height: 100%;
+    }
+    .list-heading-container {
+      display: flex;
+      padding: 8px 12px;
+      background-color: rgb(243, 243, 245);
+      border-radius: 4px;
+      align-items: center;
+    }
+    .list-heading {
+      flex: 1;
+      color: rgb(73, 74, 74);
+    }
+    .number-of-tasks-container {
+      background-color: #000;
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+    .number-of-tasks {
+      color: #fff;
+      font-size: 12px;
+    }
   </style>
   <body>
     <div class="main-container">
@@ -81,11 +116,28 @@
           </div>
         </div>
         <p class="new-list-text">
-          Click <button class="new-list-button">+ New</button> To create new
-          list and wait for project manager card. <br />
+          Click
+          <button class="new-list-button" onclick="addNewList()">+ New</button>
+          To create new list and wait for project manager card. <br />
           Don't create a card by yourself to manage a good colaboration.
         </p>
       </div>
+      <div class="list-container"></div>
     </div>
+    <script>
+      function addNewList() {
+        const list = document.createElement("div"); // <div></div>
+        list.setAttribute("class", "list"); // <div class="list"> </div>
+        list.innerHTML = ` <div class="list-heading-container">
+            <h4 class="list-heading">New list</h4>
+            <div class="number-of-tasks-container">
+              <h4 class="number-of-tasks">0</h4>
+            </div>
+          </div>`;
+        const listContainer =
+          document.getElementsByClassName("list-container")[0];
+        listContainer.appendChild(list);
+      }
+    </script>
   </body>
 </html>
