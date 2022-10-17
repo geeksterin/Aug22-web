@@ -140,6 +140,11 @@
       color: white;
       height: 30px;
     }
+    .date-picker {
+        width: 0;
+        height: 0;
+        border: none;
+    }
   </style>
   <body>
     <div class="main-container">
@@ -169,19 +174,19 @@
         </p>
       </div>
       <div class="list-container"></div>
+      
     </div>
     <script>
       function addNewList() {
         const list = document.createElement("div"); // <div></div>
         list.setAttribute("class", "list"); // <div class="list"> </div>
         list.innerHTML = `<div class="list-heading-container">
-              <h4 class="list-heading">New list</h4>
+              <h4 class="list-heading" contenteditable>New list</h4>
               <div class="number-of-tasks-container">
                 <h4 class="number-of-tasks">0</h4>
               </div>
             </div>
             <div class="task-container">
-
             </div>
 
             `;
@@ -198,14 +203,35 @@
       }
 
       function addTask(list) {
+        //create task
         const task = document.createElement("div");
         task.setAttribute("class", "task");
-        task.innerHTML = `<h4 class="task-title">New task</h4>
+        task.innerHTML = `<h4 class="task-title" contenteditable>New task</h4>
             <button class="task-date">Mar 26</button>`;
+        insertDatePicker(task) //insert date picker
+        // insert task
         const taskContainer = list.getElementsByClassName("task-container")[0];
         taskContainer.appendChild(task);
-        const numberOfTasks = list.getElementsByClassName('number-of-tasks')[0];
-        numberOfTasks.innerText = Number(numberOfTasks.innerText) + 1
+        // increase task counter
+        const numberOfTasks = list.getElementsByClassName("number-of-tasks")[0];
+        numberOfTasks.innerText = Number(numberOfTasks.innerText) + 1;
+      }
+
+      function insertDatePicker(task) {
+        //create date picker
+        const datePicker = document.createElement('input')
+        datePicker.setAttribute('class','date-picker')
+        datePicker.setAttribute('type', 'date')
+        //insert date picker to task button
+        task.getElementsByClassName('task-date')[0].appendChild(datePicker)
+        // opens date picker modal on click of task button
+        task.getElementsByClassName('task-date')[0].addEventListener('click',() => {
+            showDatePicker(datePicker)
+        })
+      }
+
+      function showDatePicker(datePicker) {
+        datePicker.showPicker()
       }
     </script>
   </body>
