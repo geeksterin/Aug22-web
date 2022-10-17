@@ -15,6 +15,7 @@
     body {
       display: flex;
       justify-content: center;
+      background-color: #f6f6f6;
     }
 
     .main-container {
@@ -73,6 +74,9 @@
     .list {
       min-width: 200px;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 8px;
     }
     .list-heading-container {
       display: flex;
@@ -80,6 +84,8 @@
       background-color: rgb(243, 243, 245);
       border-radius: 4px;
       align-items: center;
+      margin-bottom: 16px;
+      box-shadow: 0px 0px 2px 0.25px rgb(163, 163, 163);
     }
     .list-heading {
       flex: 1;
@@ -93,6 +99,46 @@
     .number-of-tasks {
       color: #fff;
       font-size: 12px;
+    }
+    .add-task-button {
+      border: 1px dashed rgb(185, 185, 185);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+    }
+    .add-task-button-text {
+      font-size: 36px;
+      color: rgb(185, 185, 185);
+      font-weight: 400;
+    }
+    .task-container {
+      flex: 1;
+      margin-bottom: 16px;
+      overflow-y: auto;
+      padding: 8px;
+    }
+    .task {
+      border-radius: 8px;
+      background-color: white;
+      height: 100px;
+      box-shadow: 0px 0px 1px 1px rgb(163, 163, 163);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+    }
+    .task-title {
+      flex: 1;
+      font-size: 14px;
+    }
+    .task-date {
+      border-radius: 4px;
+      border: none;
+      background-color: #fb882f;
+      color: white;
+      height: 30px;
     }
   </style>
   <body>
@@ -128,15 +174,38 @@
       function addNewList() {
         const list = document.createElement("div"); // <div></div>
         list.setAttribute("class", "list"); // <div class="list"> </div>
-        list.innerHTML = ` <div class="list-heading-container">
-            <h4 class="list-heading">New list</h4>
-            <div class="number-of-tasks-container">
-              <h4 class="number-of-tasks">0</h4>
+        list.innerHTML = `<div class="list-heading-container">
+              <h4 class="list-heading">New list</h4>
+              <div class="number-of-tasks-container">
+                <h4 class="number-of-tasks">0</h4>
+              </div>
             </div>
-          </div>`;
+            <div class="task-container">
+
+            </div>
+
+            `;
+        const createTaskButton = document.createElement("div");
+        createTaskButton.setAttribute("class", "add-task-button");
+        createTaskButton.innerHTML = `<h4 class="add-task-button-text">+</h4>`;
+        createTaskButton.addEventListener("click", () => {
+          addTask(list);
+        });
+        list.appendChild(createTaskButton);
         const listContainer =
           document.getElementsByClassName("list-container")[0];
         listContainer.appendChild(list);
+      }
+
+      function addTask(list) {
+        const task = document.createElement("div");
+        task.setAttribute("class", "task");
+        task.innerHTML = `<h4 class="task-title">New task</h4>
+            <button class="task-date">Mar 26</button>`;
+        const taskContainer = list.getElementsByClassName("task-container")[0];
+        taskContainer.appendChild(task);
+        const numberOfTasks = list.getElementsByClassName('number-of-tasks')[0];
+        numberOfTasks.innerText = Number(numberOfTasks.innerText) + 1
       }
     </script>
   </body>
