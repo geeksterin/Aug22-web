@@ -141,9 +141,9 @@
       height: 30px;
     }
     .date-picker {
-        width: 0;
-        height: 0;
-        border: none;
+      width: 0;
+      height: 0;
+      border: none;
     }
   </style>
   <body>
@@ -174,7 +174,6 @@
         </p>
       </div>
       <div class="list-container"></div>
-      
     </div>
     <script>
       function addNewList() {
@@ -207,8 +206,8 @@
         const task = document.createElement("div");
         task.setAttribute("class", "task");
         task.innerHTML = `<h4 class="task-title" contenteditable>New task</h4>
-            <button class="task-date">Mar 26</button>`;
-        insertDatePicker(task) //insert date picker
+            <button class="task-date">${new Date().toLocaleDateString()}</button>`;
+        insertDatePicker(task); //insert date picker
         // insert task
         const taskContainer = list.getElementsByClassName("task-container")[0];
         taskContainer.appendChild(task);
@@ -219,19 +218,25 @@
 
       function insertDatePicker(task) {
         //create date picker
-        const datePicker = document.createElement('input')
-        datePicker.setAttribute('class','date-picker')
-        datePicker.setAttribute('type', 'date')
+        const datePicker = document.createElement("input");
+        datePicker.setAttribute("class", "date-picker");
+        datePicker.setAttribute("type", "date");
+        datePicker.addEventListener("change", (e) => {
+          task.getElementsByClassName("task-date")[0].innerText =
+            e.target.value;
+        });
         //insert date picker to task button
-        task.getElementsByClassName('task-date')[0].appendChild(datePicker)
+        task.appendChild(datePicker);
         // opens date picker modal on click of task button
-        task.getElementsByClassName('task-date')[0].addEventListener('click',() => {
-            showDatePicker(datePicker)
-        })
+        task
+          .getElementsByClassName("task-date")[0]
+          .addEventListener("click", () => {
+            showDatePicker(datePicker);
+          });
       }
 
       function showDatePicker(datePicker) {
-        datePicker.showPicker()
+        datePicker.showPicker();
       }
     </script>
   </body>
