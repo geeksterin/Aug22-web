@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    "
+  >
+    <div
+      style="
+        width: 100px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+      id="tooltip-item"
+    >
+      <h4>Tooltip</h4>
+    </div>
+    <div
+      id="tooltip"
+      style="
+        width: 100px;
+        height: 50px;
+        border: 1px solid black;
+        position: fixed;
+        display: none;
+      "
+    >
+      <p>Hello how are you?</p>
+    </div>
+    <script>
+      const tooltipItem = document.getElementById("tooltip-item");
+      const tooltip = document.getElementById("tooltip");
+      tooltipItem.addEventListener("mouseover", (e) => {
+        tooltip.style.display = "block";
+        tooltip.style.top = `${e.pageY}px`;
+        tooltip.style.left = `${e.pageX}px`;
+      });
+      tooltipItem.addEventListener("mouseout", (e) => {
+        tooltip.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
