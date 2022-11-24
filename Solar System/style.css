@@ -6,6 +6,9 @@
 body {
   text-align: center;
   background: url("https://raw.githubusercontent.com/geeksterin/WebCurriculum/master/Advance%20Js/Day-04/Project%20image/galaxy.gif");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #heading {
@@ -41,16 +44,18 @@ body {
 
 #heading,
 #calculate_weight_button,
-#weight_information_container {
+#weight_information_container,
+#error_message {
   color: white;
 }
 
-#information-conatiner {
+#information_container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 64px;
   margin-top: 64px;
+  display: none;
 }
 
 #weight_information_container {
@@ -71,4 +76,12 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+}
+
+#error_message_container {
+  padding: 16px 64px;
+  background-color: rgba(211, 211, 211, 0.476);
+  max-width: 300px;
+  margin-top: 32px;
+  border-radius: 4px;
 }

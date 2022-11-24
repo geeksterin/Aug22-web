@@ -10,23 +10,23 @@
   <body>
     <h1 id="heading">Calculate a weight of an object on a planet</h1>
     <div id="input_container">
-      <input id="mass_input" type="text" />
+      <input id="mass_input" type="text" placeholder="Mass in kilogram" />
       <select id="planet_input">
-        <option value="0">--select-planet-</option>
-        <option value="1">Mercury</option>
-        <option value="2">Venus</option>
-        <option value="3">Earth</option>
-        <option value="4">Moon</option>
-        <option value="5">Mars</option>
-        <option value="6">Jupiter</option>
-        <option value="7">Saturn</option>
-        <option value="8">Uranus</option>
-        <option value="9">Neptune</option>
-        <option value="10">Pluto</option>
+        <option value="">--select-planet-</option>
+        <option value="mercury">Mercury</option>
+        <option value="venus">Venus</option>
+        <option value="earth">Earth</option>
+        <option value="moon">Moon</option>
+        <option value="mars">Mars</option>
+        <option value="jupiter">Jupiter</option>
+        <option value="saturn">Saturn</option>
+        <option value="uranus">Uranus</option>
+        <option value="neptune">Neptune</option>
+        <option value="pluto">Pluto</option>
       </select>
       <button id="calculate_weight_button">Calculate Weight</button>
     </div>
-    <div id="information-conatiner">
+    <div id="information_container">
       <img
         id="planet_image"
         src="https://raw.githubusercontent.com/geeksterin/WebCurriculum/master/Advance%20Js/Day-04/Project%20image/earth.png"
@@ -37,5 +37,9 @@
         <div id="weight_container"><h3>98.00 N</h3></div>
       </div>
     </div>
+    <div id="error_message_container">
+      <h3 id="error_message">Please select a planet</h3>
+    </div>
+    <script src="./script.js"></script>
   </body>
 </html>
