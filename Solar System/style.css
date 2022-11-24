@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  background: url("https://raw.githubusercontent.com/geeksterin/WebCurriculum/master/Advance%20Js/Day-04/Project%20image/galaxy.gif");
+}
+
+#heading {
+  margin-top: 32px;
+}
+
+#input_container {
+  margin-top: 64px;
+}
+
+#mass_input,
+#planet_input,
+#calculate_weight_button {
+  height: 32px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  margin-right: 8px;
+  padding: 0px 16px;
+}
+
+#mass_input {
+  width: 250px;
+}
+
+#planet_input {
+  width: 150px;
+}
+
+#calculate_weight_button {
+  background-color: rgba(211, 211, 211, 0.648);
+}
+
+#heading,
+#calculate_weight_button,
+#weight_information_container {
+  color: white;
+}
+
+#information-conatiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  margin-top: 64px;
+}
+
+#weight_information_container {
+  background-color: rgba(211, 211, 211, 0.476);
+  padding: 16px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+}
+
+#weight_container {
+  height: 96px;
+  width: 96px;
+  border-radius: 50%;
+  background-color: rgba(211, 211, 211, 0.191);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}

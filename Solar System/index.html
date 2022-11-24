@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 id="heading">Calculate a weight of an object on a planet</h1>
+    <div id="input_container">
+      <input id="mass_input" type="text" />
+      <select id="planet_input">
+        <option value="0">--select-planet-</option>
+        <option value="1">Mercury</option>
+        <option value="2">Venus</option>
+        <option value="3">Earth</option>
+        <option value="4">Moon</option>
+        <option value="5">Mars</option>
+        <option value="6">Jupiter</option>
+        <option value="7">Saturn</option>
+        <option value="8">Uranus</option>
+        <option value="9">Neptune</option>
+        <option value="10">Pluto</option>
+      </select>
+      <button id="calculate_weight_button">Calculate Weight</button>
+    </div>
+    <div id="information-conatiner">
+      <img
+        id="planet_image"
+        src="https://raw.githubusercontent.com/geeksterin/WebCurriculum/master/Advance%20Js/Day-04/Project%20image/earth.png"
+        alt="planet"
+      />
+      <div id="weight_information_container">
+        <span>The weight of the object on <b>Earth</b></span>
+        <div id="weight_container"><h3>98.00 N</h3></div>
+      </div>
+    </div>
+  </body>
+</html>
