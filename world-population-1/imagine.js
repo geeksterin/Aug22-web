@@ -2272,4 +2272,21 @@ for(let i = 0 ; i <countries_data.length; i++) {
     }
 }
 
-console.log(languagesVsNumberOfCountries)
+//console.log(languagesVsNumberOfCountries)
+
+//sorting the languages
+
+let sortable = [];
+for (let data in languagesVsNumberOfCountries) {
+	sortable.push([data, languagesVsNumberOfCountries[data]]);
+}
+
+sortable.sort(function (a, b) {
+	return b[1] - a[1];
+})
+
+// top 10 language in sorted
+
+sortable = sortable.splice(0, 10);
+
+console.log(sortable);
