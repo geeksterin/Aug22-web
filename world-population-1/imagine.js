@@ -2276,31 +2276,31 @@ const newLanguagesVsNumberOfCountries = {}
 const languages = Object.keys(languagesVsNumberOfCountries);
 const numberOfCountries = Object.values(languagesVsNumberOfCountries);
 
-for(let i = 0; i < numberOfCountries.length; i++) {
-    for(let j = 0; j < numberOfCountries.length; j++) {
-        if(numberOfCountries[j+1] > numberOfCountries[j]) {
-            let temp = numberOfCountries[j]
-            numberOfCountries[j] = numberOfCountries[j+1]
-            numberOfCountries[j+1] = temp
-            temp = languages[j]
-            languages[j] = languages[j+1]
-            languages[j+1] = temp
-        }
-    }
-}
-
-for(let i = 0; i < numberOfCountries.length; i++) {
-    newLanguagesVsNumberOfCountries[languages[i]] = numberOfCountries[i]
-}
-
 // for(let i = 0; i < numberOfCountries.length; i++) {
-//     let maxIndex = 0
-//     for(let j = 0; j< numberOfCountries.length; j++) {
-//         if(numberOfCountries[j] && numberOfCountries[j] >= numberOfCountries[maxIndex]) {
-//             maxIndex = j
+//     for(let j = 0; j < numberOfCountries.length; j++) {
+//         if(numberOfCountries[j+1] > numberOfCountries[j]) {
+//             let temp = numberOfCountries[j]
+//             numberOfCountries[j] = numberOfCountries[j+1]
+//             numberOfCountries[j+1] = temp
+//             temp = languages[j]
+//             languages[j] = languages[j+1]
+//             languages[j+1] = temp
 //         }
 //     }
-//     newLanguagesVsNumberOfCountries[languages[maxIndex]] = numberOfCountries[maxIndex]
-//     numberOfCountries[maxIndex] = undefined
 // }
+
+// for(let i = 0; i < numberOfCountries.length; i++) {
+//     newLanguagesVsNumberOfCountries[languages[i]] = numberOfCountries[i]
+// }
+
+for(let i = 0; i < numberOfCountries.length; i++) {
+    let maxIndex = 0
+    for(let j = 0; j< numberOfCountries.length; j++) {
+        if(numberOfCountries[j] && numberOfCountries[j] >= numberOfCountries[maxIndex]) {
+            maxIndex = j
+        }
+    }
+    newLanguagesVsNumberOfCountries[languages[maxIndex]] = numberOfCountries[maxIndex]
+    numberOfCountries[maxIndex] = undefined
+}
 console.log(newLanguagesVsNumberOfCountries)
