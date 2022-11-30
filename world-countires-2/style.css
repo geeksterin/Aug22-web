@@ -8,6 +8,7 @@
   padding: 100px 0;
   color: white;
   background: url("https://i.postimg.cc/Hsw-ftGGG/globe-2.jpg");
+  background-size: cover;
 }
 
 #heading {
@@ -28,11 +29,11 @@
 }
 
 #search_input {
-    height: 30px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    width: 250px;
-    padding: 0 16px;
-    margin-right: 8px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  width: 250px;
+  padding: 0 16px;
+  margin-right: 8px;
 }
