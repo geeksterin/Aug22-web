@@ -37,3 +37,33 @@
   padding: 0 16px;
   margin-right: 8px;
 }
+
+#country_cards_container {
+    display: flex;
+    background-color: bisque;
+    padding: 32px;
+    flex-wrap: wrap;
+}
+
+.country_card {
+  height: 150px;
+  width: 140px;
+  background: linear-gradient(rgba(63, 137, 187, 0.75), rgba(175, 63, 187, 0.75)), url('https://i.postimg.cc/85fYJ9d0/map-image.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+
+.select {
+    background-color: #581cb8 !important;
+}
+
+#search_text {
+    color: red;
+}
