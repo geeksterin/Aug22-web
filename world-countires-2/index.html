@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Countires</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="heading_actions_container">
+      <h1 id="heading">WORLD COUNTRIES LIST</h1>
+      <span
+        >Total number of countries:
+        <span id="number_of_countires">193</span></span
+      >
+      <br>
+      <span
+        >Countries start with <span id="search_text">S</span> are
+        <span id="filtered_number_of_countries">25</span></span
+      >
+      <br>
+      <br>
+      <div id="actions_container">
+        <button id="start_word_button">STARTING WORD</button>
+        <button id="anywhere_button">SEARCH WITH ANY WORD</button>
+        <button id="sort_button">
+          <i class="fa-solid fa-arrow-down-a-z"></i>
+        </button>
+      </div>
+      <div id="search_input_container">
+        <input id="search_input" type="text" placeholder="search country" />
+        <i class="fa-solid fa-search"></i>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

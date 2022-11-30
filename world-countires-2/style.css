@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#heading_actions_container {
+  text-align: center;
+  padding: 100px 0;
+  color: white;
+  background: url("https://i.postimg.cc/Hsw-ftGGG/globe-2.jpg");
+}
+
+#heading {
+  margin-bottom: 16px;
+}
+
+#start_word_button,
+#anywhere_button,
+#sort_button {
+  border-radius: 4px;
+  border: none;
+  height: 30px;
+  background-color: #895be6;
+  color: white;
+  margin-bottom: 16px;
+  margin-right: 8px;
+  padding: 8px;
+}
+
+#search_input {
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    width: 250px;
+    padding: 0 16px;
+    margin-right: 8px;
+}
