@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  padding: 16px;
+  color: white;
+}
+
+#heading,
+#line_break {
+  margin-bottom: 16px;
+}
+
+#input_container {
+  margin-bottom: 32px;
+}
+
+.emoji_row {
+  font-size: 32px;
+}
+
+.emoji {
+    margin-right: 32px;
+  width: 64px;
+}
+
+.emoji_name {
+  display: inline-block;
+  width: calc(50% - 48px);
+}
+
+.emoji_description {
+  display: inline-block;
+  width: calc(50% - 48px);
+}
