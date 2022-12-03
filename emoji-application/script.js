@@ -14,6 +14,7 @@ function renderEmojis() {
     const inputValue = searchInput.value
     emojiListCopy = emojiListCopy.filter((emoji) => {
         let flag = false
+        //tag
         for (let i = 0; i < emoji.tags.length; i++) {
             if (emoji.tags[i].toLowerCase().includes(inputValue.toLowerCase())) {
                 flag = true
