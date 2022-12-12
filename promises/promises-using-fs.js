@@ -30,13 +30,22 @@ const fs = require("fs");
 //     console.log(data)
 // })
 
-// let promise = fs.promises.writeFile(`test1.txt`, JSON.stringify(Math.round(Math.random() * 100)))
-// for (let i = 2; i <= 8; i++) {
-//     promise = promise.then(() => {
-//         console.log(`file${i-1} written successfully`)
-//         return fs.promises.writeFile(`test${i}.txt`, JSON.stringify(Math.round(Math.random() * 100)))
-//     })
-// }
+function write8Files() {
+    let promise = fs.promises.writeFile(`test1.txt`, JSON.stringify(Math.round(Math.random() * 100)))
+    for (let i = 2; i <= 8; i++) {
+        promise = promise.then(() => {
+            console.log(`file${i - 1} written successfully`)
+            return fs.promises.writeFile(`test${i}.txt`, JSON.stringify(Math.round(Math.random() * 100)))
+        })
+    }
+}
+
+async function write8Files() {
+    for (let i = 1; i <= 8; i++) {
+        await fs.promises.writeFile(`test${i}.txt`, JSON.stringify(Math.round(Math.random() * 100))).catch(() => {})
+    }
+}
+write8Files()
 
 // for (let i = 1; i <= 8; i++) {
 //     fs.promises.writeFile(`test${i}.txt`, JSON.stringify(Math.round(Math.random() * 100))).then(() => {

@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.profile_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile {
+  display: flex;
+  gap: 16px;
+}
+
+#profiles_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
