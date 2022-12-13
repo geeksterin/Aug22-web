@@ -9,11 +9,11 @@ function init() {
 }
 
 async function getUsers() {
-    const value = searchInput.value
-    const streamResponse = await fetch(`https://api.github.com/search/users${value ? `?q=${value}` : ''}`)
-    const textResponse = await streamResponse.text()
-    const jsonResponse = JSON.parse(textResponse)
-    renderUsers(jsonResponse.items)
+const value = searchInput.value
+const streamResponse = await fetch(`https://api.github.com/search/users${value ? `?q=${value}` : ''}`)
+const textResponse = await streamResponse.text()
+const jsonResponse = JSON.parse(textResponse)
+renderUsers(jsonResponse.items)
 }
 
 function renderUsers(userData) {

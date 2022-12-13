@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#heading_container {
+    text-align: center;
+    background-color: #161e54;
+    color: white;
+    padding: 40px;
+}
+
+#content_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 150px);
+}
+
+#input_container {
+    padding: 40px;
+}
+
+#search_input {
+    width: 300px;
+    height: 30px;
+    margin: 0;
+}
+
+#search_button {
+    height: 30px;
+    margin: 0;
+    background-color: #161e54;
+    color: white;
+    border: none;
+}
+
+#def_audio {
+    margin-top: 32px;
+}
