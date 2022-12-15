@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="action_container">
+        <h1 id="heading">Weather Application</h1>
+        <h3 id="sub_heading">Know the weather without visiting the place</h3>
+        <input id="search_input" type="text" placeholder="location" />
+        <button id="search_button">View</button>
+    </div>
+    <div id="info_container">
+        <h1 style="margin-bottom: 16px;">New Delhi</h1>
+        <img src="http://openweathermap.org/img/wn/09d@2x.png" id="weather_image" />
+        <h1 id="temperature">19&deg;</h1>
+        <h4 id="season">Rainy</h4>
+        <div id="weather_info">
+            <div id="wind_info">
+                <h3>Wind</h3>
+                <h1>17<span class="unit">km</span></h1>
+            </div>
+            <div id="humidity_info">
+                <h3>Humidity</h3>
+                <h1>70<span class="unit">%</span></h1>
+            </div>
+            <div id="precipitation_info">
+                <h3>Precipitation</h3>
+                <h1>90<span class="unit">%</span></h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

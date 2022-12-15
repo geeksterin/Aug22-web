@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px;
+}
+
+#sub_heading {
+    margin-bottom: 32px;
+}
+
+#search_input {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 32px;
+    padding: 0 12px;
+}
+
+.meal_image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+#meals_container {
+    width: calc(100vw - 150px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
