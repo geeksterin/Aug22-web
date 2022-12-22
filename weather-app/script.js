@@ -25,14 +25,14 @@ function getCurrentLocation() {
 
 async function fetchWeatherUsingCity() {
     const location = searchInput.value;
-    const streamResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d8ab14f7e93c56cbe84562d28e8202bd`);
+    const streamResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d8ab14f7e93c56cbe84562d28e8202bd&units=metric`);
     const textBody = await streamResponse.text();
     const jsonData = JSON.parse(textBody);
     renderUI(jsonData)
 }
 
 async function fetchWeatherUsingLatitudeLongitude(lat, long) {
-    const streamResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=d8ab14f7e93c56cbe84562d28e8202bd`);
+    const streamResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=d8ab14f7e93c56cbe84562d28e8202bd&units=metric`);
     const textBody = await streamResponse.text();
     const jsonData = JSON.parse(textBody);
     renderUI(jsonData);
@@ -48,7 +48,7 @@ function renderUI(jsonData) {
     const cloudiness = jsonData.clouds.all
     season.innerText = weatherDescription
     weatherImage.setAttribute('src', `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`)
-    temperatureBlock.innerHTML = `${temperature}&deg;F`
+    temperatureBlock.innerHTML = `${temperature}&deg;C`
     cityName.innerText = jsonData.name
     windSpeedBlock.innerText = windSpeed
     humidityBlock.innerText = humidity
