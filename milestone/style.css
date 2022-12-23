@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    align-items: center;
+}
+
+#logo_container {
+    display: flex;
+}
+
+#logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 16px;
+}
+
+#search_button {
+    border: 1px solid #fca311;
+    height: 34px;
+    width: 100px;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#search_button:hover {
+    background-color: #fca311;
+    color: white;
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100vh - 260px);
+    background-color: aliceblue;
+}
+
+#main_image {
+    width: 60vw;
+    height: 60vh;
+}
+
+#footer {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    align-items: center;
+}
+
+#github_icon {
+    width: 20px;
+    height: 20px;
+}
+
+#trending_coins_container {
+    background-color: aliceblue;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#trending_coins_heading {
+    color: #fca311;
+    margin-bottom: 16px;
+}
+
+.trending_coin_container {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    min-width: 350px;
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#trending_coins_slideshow {
+    display: flex;
+    gap: 24px;
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 12px 16px;
+}
+
+.coin_name {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.coin_price {
+    color: gray;
+}
