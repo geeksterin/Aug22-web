@@ -103,3 +103,73 @@
 .coin_price {
     color: gray;
 }
+
+#action_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    flex-direction: column;
+    gap: 16px;
+    border-bottom: 1px solid lightgray;
+}
+
+#action_container_heading {
+    color: #fca311;
+}
+
+#search_input {
+    height: 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0px 8px;
+    margin-right: 12px;
+}
+
+#search_input_button {
+    height: 30px;
+    font-size: 20px;
+    background-color: #fca311;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#coins_container {
+    height: calc(100vh - 230px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 64px;
+    gap: 16px;
+    overflow-y: scroll;
+}
+
+.coin_box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: lightgrey;
+    padding: 12px 16px;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.coin_info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.coin_image {
+    width: 20px;
+    height: 20px;
+}
+
+.more_info_button {
+    background-color: white;
+    height: 24px;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+}
