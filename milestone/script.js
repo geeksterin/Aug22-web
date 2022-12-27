@@ -7,6 +7,7 @@ init()
 function init() {
     getTrendingCoins()
     getCoins()
+    createChart()
     searchButton.addEventListener('click', getCoins)
 }
 
@@ -122,3 +123,31 @@ async function getCoins() {
 //     }
 //     console.log(count)
 // }, 1000)
+
+
+async function createChart() {
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=inr&days=1&interval=hourly`)
+    const jsonData = await res.json()
+    const xValues = [];
+    const yValues = [];
+    for(const price of jsonData.prices) {
+        const d = new Date(0)
+        d.setUTCMilliseconds(price[0])
+        xValues.push(`${d.getHours()}:${d.getMinutes()}`)
+        yValues.push(price[1])
+    }
+    new Chart('coin_chart',{
+        type: 'line',
+        data: {
+            labels: xValues,
+            datasets: [
+                {
+                    label: 'Price',
+                    data: yValues,
+                    fill: false,
+                    borderColor: 'red'
+                }
+            ]
+        }
+    })
+}

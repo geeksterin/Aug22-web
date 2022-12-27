@@ -173,3 +173,27 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+#coin_info_container {
+    display: flex;
+    gap:32px;
+    padding: 32px;
+}
+
+#coin_pricing_container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+}
+
+#coin_info_heading {
+    margin-bottom: 16px;
+}
+
+#main_container {
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+}
+#coin_chart_container {
+    padding: 32px;
+}
