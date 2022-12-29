@@ -128,6 +128,7 @@ async function getCoins() {
 async function createChart() {
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=inr&days=1&interval=hourly`)
     const jsonData = await res.json()
+    console.log(jsonData)
     const xValues = [];
     const yValues = [];
     for(const price of jsonData.prices) {
