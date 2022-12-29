@@ -2,13 +2,18 @@ const trendingCoinsSlideshow = document.getElementById('trending_coins_slideshow
 const searchInput = document.getElementById('search_input')
 const coinsContainer = document.getElementById('coins_container')
 const searchButton = document.getElementById('search_input_button')
+const coinDescription= document.getElementById('coin_description')
+const coinInfoHeading = document.getElementById('coin_info_heading')
+const coinInfoIcon = document.getElementById('coin_info_icon')
+const coinPrices = document.getElementsByClassName('coin_pricing')
 init()
 
 function init() {
-    getTrendingCoins()
-    getCoins()
+    // getTrendingCoins()
+    // getCoins()
+    getCoinInfo()
     createChart()
-    searchButton.addEventListener('click', getCoins)
+    // searchButton.addEventListener('click', getCoins)
 }
 
 function scrollAnimation() {
@@ -123,6 +128,18 @@ async function getCoins() {
 //     }
 //     console.log(count)
 // }, 1000)
+
+async function getCoinInfo() {
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
+    const jsonData = await res.json()
+    coinDescription.innerHTML = jsonData.description.en
+    coinInfoHeading.innerText = `${jsonData.name} (${jsonData.symbol.toUpperCase()})`
+    coinInfoIcon.setAttribute('src',jsonData.image.large)
+    coinPrices[0].innerText = `₹ ${jsonData.market_data.current_price.inr}`
+    coinPrices[1].innerText = `$ ${jsonData.market_data.current_price.usd}`
+    coinPrices[2].innerText = `€ ${jsonData.market_data.current_price.eur}`
+    coinPrices[3].innerText = `£ ${jsonData.market_data.current_price.gbp}`
+}
 
 
 async function createChart() {
