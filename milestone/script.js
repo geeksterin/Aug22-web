@@ -2,18 +2,24 @@ const trendingCoinsSlideshow = document.getElementById('trending_coins_slideshow
 const searchInput = document.getElementById('search_input')
 const coinsContainer = document.getElementById('coins_container')
 const searchButton = document.getElementById('search_input_button')
-const coinDescription= document.getElementById('coin_description')
+const coinDescription = document.getElementById('coin_description')
 const coinInfoHeading = document.getElementById('coin_info_heading')
 const coinInfoIcon = document.getElementById('coin_info_icon')
 const coinPrices = document.getElementsByClassName('coin_pricing')
 init()
 
 function init() {
-    // getTrendingCoins()
-    // getCoins()
-    getCoinInfo()
-    createChart()
-    // searchButton.addEventListener('click', getCoins)
+    if (window.location.pathname.includes('detail')) {
+        const coinId = new URLSearchParams(window.location.search).get('id')
+        getCoinInfo(coinId)
+        createChart(coinId)
+    }
+    else if(window.location.pathname.includes('search')) {
+        // getCoins()
+        searchButton.addEventListener('click', getCoins)
+    } else {
+        getTrendingCoins()
+    } 
 }
 
 function scrollAnimation() {
@@ -72,15 +78,15 @@ async function getCoins() {
     const res = await fetch(`https://api.coingecko.com/api/v3/search?query=${searchInput.value}`)
     const jsonData = await res.json()
     let html = ''
-    for(let i =0; i< jsonData.coins.length; i++) {
+    for (let i = 0; i < jsonData.coins.length; i++) {
         const coin = jsonData.coins[i]
         html += `<div class="coin_box">
         <div class="coin_info">
-          <h5 class="serial_number">${i+1}</h5>
+          <h5 class="serial_number">${i + 1}</h5>
           <img class="coin_image" src="${coin.large}" />
           <h4 class="coin_title">${coin.name} ${coin.symbol}</h4>
         </div>
-        <button class="more_info_button">More Info</button>
+        <a href="./detail.html?id=${coin.id}"><button class="more_info_button">More Info</button></a>
       </div>`
     }
     coinsContainer.innerHTML = html
@@ -129,12 +135,12 @@ async function getCoins() {
 //     console.log(count)
 // }, 1000)
 
-async function getCoinInfo() {
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
+async function getCoinInfo(coinId) {
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
     const jsonData = await res.json()
     coinDescription.innerHTML = jsonData.description.en
     coinInfoHeading.innerText = `${jsonData.name} (${jsonData.symbol.toUpperCase()})`
-    coinInfoIcon.setAttribute('src',jsonData.image.large)
+    coinInfoIcon.setAttribute('src', jsonData.image.large)
     coinPrices[0].innerText = `₹ ${jsonData.market_data.current_price.inr}`
     coinPrices[1].innerText = `$ ${jsonData.market_data.current_price.usd}`
     coinPrices[2].innerText = `€ ${jsonData.market_data.current_price.eur}`
@@ -142,19 +148,18 @@ async function getCoinInfo() {
 }
 
 
-async function createChart() {
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=inr&days=1&interval=hourly`)
+async function createChart(coinId) {
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=inr&days=1&interval=hourly`)
     const jsonData = await res.json()
-    console.log(jsonData)
     const xValues = [];
     const yValues = [];
-    for(const price of jsonData.prices) {
+    for (const price of jsonData.prices) {
         const d = new Date(0)
         d.setUTCMilliseconds(price[0])
         xValues.push(`${d.getHours()}:${d.getMinutes()}`)
         yValues.push(price[1])
     }
-    new Chart('coin_chart',{
+    new Chart('coin_chart', {
         type: 'line',
         data: {
             labels: xValues,
